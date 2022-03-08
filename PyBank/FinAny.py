@@ -39,8 +39,7 @@ with open(csvpath, 'r') as csvfile:
     # Read each row of data after the header
     for row in csvreader:
         
-        # Set the 'num_months', 'net_profit_loss', and 'ave_chg_profit_loss, greatest_profit, greatest_loss' variables for better
-        # readability, convert strings to ints for numerical calculations
+        #Calculations
         num_months = num_months + 1
         next_profit_loss = int(row[1])
         net_profit_loss = net_profit_loss + next_profit_loss
@@ -56,7 +55,7 @@ with open(csvpath, 'r') as csvfile:
         profit_loss=next_profit_loss
         # Calculate the average and round to the nearest 2 decimal places
     ave_chg_profit_loss = round(total_chg_profit_loss / num_months, 2)
-
+#output report
 print("Financial Analysis")
 print("---------------------------------") 
 print(f"Total Months: {num_months}")
@@ -64,8 +63,11 @@ print(f"Total : ${net_profit_loss}")
 print(f"Average Change: $({ave_chg_profit_loss})")
 print(f"Greatest Increase in Profit: {greatest_profit_date} $({greatest_profit})")
 print(f"Greatest Decrease in Profit: {greatest_loss_date} $({greatest_loss})")
+
+
 # Set the path for the output.txt
 output = open(r"output.txt", "w+")
+#write to text file
 output.write("Financial Analysis\n")
 output.write("---------------------------------\n") 
 output.write(f"Total Months: {num_months}\n")
@@ -74,6 +76,5 @@ output.write(f"Average Change: $({ave_chg_profit_loss})\n")
 output.write(f"Greatest Increase in Profit: {greatest_profit_date} $({greatest_profit})\n")
 output.write(f"Greatest Decrease in Profit: {greatest_loss_date} $({greatest_loss})\n")
 output.close()
-# Open the output path as a file and pass into the 'csv.writer()' function
-# Set the delimiter/separater as a ','
+
 
